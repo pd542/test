@@ -1,0 +1,30 @@
+name: "womail"
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  
+  push:
+  
+env:
+  ACTIONS_ALLOW_UNSECURE_COMMANDS: true
+  WOMAIL_URL_LIST: ${{ secrets.WOMAIL_URL_LIST }}
+
+jobs:
+  job_1:
+    name: Python womail
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+      with:
+        ref: main
+    - name: Setup Python environment
+      uses: actions/setup-python@v1.1.1 
+      with:
+         python-version: '3.9'
+         architecture: 'x64'
+     
+    - name: Install Dependence
+      run: pip install requests
+    - name: Run pa.py
+      run: python ./womail4.0.py
