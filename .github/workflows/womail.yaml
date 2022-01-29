@@ -11,11 +11,14 @@ env:
 
 
 jobs:
-  job:
+  job_1:
     name: Python womail
     runs-on: ubuntu-latest
     
   steps:
+  - uses: actions/checkout@v
+     with:
+       ref: main # Change to your branch to place crawled picture
   - name: Setup Python environment
     uses: actions/setup-python@v1.1.1 
     with:
