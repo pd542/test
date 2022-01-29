@@ -15,7 +15,7 @@ jobs:
     name: Python womail
     runs-on: ubuntu-latest
     
-  step:
+  steps:
   - name: Setup Python environment
     uses: actions/setup-python@v1.1.1 
     with:
