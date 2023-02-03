@@ -1,9 +1,8 @@
 import requests
 from bs4 import BeautifulSoup
-from base64 import urlsafe_b64decode
 import re
 import json
-from requests_toolbelt.multipart.encoder import MultipartEncoder
+
 
 session = requests.session()
 url="https://www.eahub.cn/member.php?mod=logging&action=login"
@@ -15,17 +14,10 @@ loginhash = re.sub(r'loginhash=','',re.search(r'loginhash=[a-zA-Z0-9]+', r.text)
 print(loginhash)
 
 url="https://www.eahub.cn/member.php?mod=logging&action=login&loginsubmit=yes&loginhash="+loginhash+"&mobile=2&handlekey=loginform&inajax=1"
-data={'formhash':formhash,
-      'referer':'https://www.eahub.cn/?mobile=2',
-      'fastloginfield':'username',
-      'cookietime':'2592000',
-      'username':'pd542',
-      'password':'Pdl289020879',
-      'questionid':0,
-      'answer':''}
+
+
 text_data="formhash="+formhash+"&referer=https%3A%2F%2Fwww.eahub.cn%2F%3Fmobile%3D2&fastloginfield=username&cookietime=2592000&username=pd542&password=Pdl289020879&questionid=0&answer="
-requestJSONdata=str(data).replace("+", "%2B")
-requestdata=requestJSONdata.encode("utf-8")
+
 print(text_data)
 head = {
 'Host': 'www.eahub.cn',
