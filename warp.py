@@ -75,4 +75,4 @@ while True:
 		print("Getting WARP+ Traffic")
 		print("")
 		print("[:(] Error when connecting to server.")
-		print(f"[#] Total: {g} Good {b} Bad")	
+		print(f"[#] Total: {g} Good {b} Bad")
